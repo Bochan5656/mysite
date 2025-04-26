@@ -1,0 +1,346 @@
+@charset "UTF-8";
+html, body {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
+  
+html {
+    font-size: 100%;
+}
+body {
+    line-height: 1.7;
+    background-color: rgba(243, 213, 144, 0.7);
+
+    background-image: url('../images/メインビジュアル\ 1.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    margin: 0;
+    padding: 0;
+}
+header {
+    display: flex;
+}
+a {
+    text-decoration: none;
+}
+
+.font-english-1 {
+    font-family: 'Tilt Warp', sans-serif;
+    font-weight: regular;
+}
+
+.p {
+    font-family: 'Noto Sans JP', sans-serif;
+    font-weight: regular;
+}
+
+.page-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+.main-nav {
+    display: flex;
+    max-width: 880px;
+    margin: 30px 0 0 200px;
+    gap: 2.5rem;
+    font-size: 32px;
+    letter-spacing: 0.2em;
+    list-style: none;
+}
+.main-nav a {
+    color: #DD9353;
+}
+.main-nav a:hover {
+    color: #DF7212;
+}
+
+/*ハンバーガーメニュー*/
+.hamburger {
+    display: none;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    z-index: 1000;
+}
+/* チェックボックスを非表示にする */
+.drawer_hidden {
+    display: none;
+}
+/* ハンバーガーアイコンの設置スペース */
+.drawer_open {
+    display: flex;
+    height: 60px;
+    width: 60px;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    z-index: 100;/* 重なり順を一番上にする */
+    cursor: pointer;
+}
+/* ハンバーガーメニューのアイコン */
+.drawer_open span,
+.drawer_open span:before,
+.drawer_open span:after {
+    content: '';
+    display: block;
+    height: 3px;
+    width: 25px;
+    border-radius: 3px;
+    background: #000;
+    transition: 0.5s;
+    position: absolute;
+}
+/* 三本線の一番上の棒の位置調整 */
+.drawer_open span:before {
+    bottom: 8px;
+}
+/* 三本線の一番下の棒の位置調整 */
+.drawer_open span:after {
+    top: 8px;
+}
+/* アイコンがクリックされたら真ん中の線を透明にする */
+#drawer_input:checked ~ .drawer_open span {
+    background: rgba(255, 255, 255, 0);
+}
+/* アイコンがクリックされたらアイコンが×印になように上下の線を回転 */
+#drawer_input:checked ~ .drawer_open span::before {
+    bottom: 0;
+    transform: rotate(45deg);
+    background-color: #fff;
+}
+#drawer_input:checked ~ .drawer_open span::after {
+    top: 0;
+    transform: rotate(-45deg);
+    background-color: #fff;
+}
+/* メニューのデザイン*/
+.hamburger_content {
+    width: 50%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 100%; /* メニューを画面の外に飛ばす */
+    z-index: 99;
+    background: #DF7212;
+    transition: .5s;
+}
+/* メニュー黒ポチを消す */
+.hamburger_list {
+    list-style: none;
+}
+.hamburger_item {
+    font-size: 32px;
+}
+.hamburger_item a {
+    color: #fff;
+}
+/* アイコンがクリックされたらメニューを表示 */
+#drawer_input:checked ~ .hamburger_content {
+left: 50%;/* 右側にメニューを画面に入れる */
+}
+
+.main-visual {
+    text-align: center;
+}
+.main-visual h1 {
+    font-size: 64px;
+    letter-spacing: 0.15em;
+    margin-top: 330px;
+}
+.main-visual p {
+    font-size: 32px;
+    letter-spacing: 0.2em;
+    margin-top: -50px;
+}
+
+.sub-heading {
+    width: 280px;
+}
+
+.sub-heading h3 {
+    font-size: 64px;
+    letter-spacing: 0.2em;
+}
+
+.about {
+    margin-top: 380px;
+    letter-spacing: 0.1em;
+}
+.spacer-50px {
+    width: 100%;
+    height: 50px;
+    background-color: transparent;
+}
+.about-component {
+    margin-left: 200px;
+    max-width: 100%;
+}
+.about h3 {
+    position: absolute;
+    left: 140px;
+    transform-origin: top left;
+    transform: rotate(90deg)
+}
+.about h4 {
+    margin-top: 120px;
+    font-family: 'Tourney', sans-serif;
+    font-weight: medium;
+    font-size: 46px;
+    color: #DF7212;
+}
+
+.works {
+    position: relative;
+    padding: 200px 0;
+}
+.works h3 {
+    position: absolute;
+    top: 380px;
+    right: 2%;
+    transform-origin: top right;
+    transform: rotate(90deg);
+    margin: 0;
+}
+.works-component {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+}
+.grid {
+    width: 100%;
+    max-width: 80%;
+    display: grid;
+    gap: clamp(2vw, 5vw, 10vw);
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    justify-content: space-between;
+}
+
+.item {
+    width: 100%;
+    height: auto;
+}
+.image-container {
+    position: relative;
+    width: 421px;
+    height: 250px;
+}
+
+.mockup-pc {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 365px;
+    height: 237px;
+}
+.work-title {
+    color: #DF7212;
+    font-size: 24px;
+    font-weight: bold;
+    margin-top: 0px;
+    margin-left: 5px;
+}
+.work-kind {
+    font-size: 15px;
+    font-weight: bold;
+    margin-top: -25px;
+    margin-left: 20px;
+}
+
+footer {
+    margin: 0;
+    padding: 0;
+}
+.copyright {
+    background-color: #DF7212;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 300px;
+    margin-top: 2rem;
+}
+.copyright p {
+    color: white;
+    font-size: 20px;
+    letter-spacing: 0.2em;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1200px) {
+    .works-component {
+        justify-content: flex-start;
+        margin-left: 50px;
+    }
+
+}
+
+@media (max-width: 1050px) {
+
+    .works {
+        position: relative;
+        padding: 200px 0;
+    }
+    .works h3 {
+        position: absolute;
+        top: 100px;
+        left: 140px;
+        transform-origin: top left;
+        transform: rotate(90deg)
+    }
+    .works-component {
+        justify-content: center;
+        margin-left: 200px;
+    }
+
+}
+
+@media (max-width: 880px) {
+    .main-nav {
+        display: none;
+    }
+    .hamburger {
+        display: block;
+    }
+
+    .about-component {
+        margin-left: 150px;
+    }
+
+    .works-component {
+        margin-left: 150px;
+        justify-content: flex-start;
+    }
+
+}
+
+@media (max-width: 640px) {
+
+    .about h4 {
+        font-size: 30px;
+    }
+    .spacer-50px {
+        width: 100%;
+        height: 0px;
+        background-color: transparent;
+    }
+    .about h3,
+    .works h3 {
+        position: static;
+        transform: none;
+        margin-left: 5px;
+        margin-bottom: 2rem;
+    }
+    .about-component,
+    .works-component {
+        margin-left: 10px;
+        justify-content: center;
+    }
+}
